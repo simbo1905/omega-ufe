@@ -1,0 +1,28 @@
+{
+  "output": {
+    "filePath": "repomix-output.xml",
+    "style": "xml",
+    "directoryStructure": true,
+    "fileSummary": true,
+    "showLineNumbers": true
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.json",
+    "**/*.md"
+  ],
+  "ignore": {
+    "useGitignore": true,
+    "useDefaultPatterns": true,
+    "customPatterns": [
+      "node_modules",
+      "dist",
+      "build",
+      "coverage"
+    ]
+  },
+  "tokenCount": {
+    "encoding": "o200k_base"
+  }
+}
