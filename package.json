@@ -5,5 +5,8 @@
   "workspaces": ["packages/*"],
   "scripts": {
     "codegen": "npm run codegen --workspace=packages/model"
+  },
+  "dependencies": {
+    "model": "file:packages/model" 
   }
 }
