@@ -96,9 +96,6 @@ dataAccessLayer.fetchUser(payload.userId);
 };
 ```
 
-
----
-
 ## Architectural Roles
 
 ### 1. **Microfrontends**
@@ -137,7 +134,7 @@ newField: String!
 }
 ```
 
-3. **Lightweight BFF*: 
+3. **Lightweight BFF*:
 
 Use a Backend-For-Frontend layer to aggregate microservices using Schema Stitching (never invasive Federation)
 
@@ -148,7 +145,7 @@ Use a Backend-For-Frontend layer to aggregate microservices using Schema Stitchi
 - **Type Safety**: TypeScript guards against schema mismatches
 - **Flexible Upgrades**: Gradual schema adoption without monolithic locks
 
-# Immmutable Stores with Immer
+## Immmutable Stores with Immer
 
 We're creating a system to handle GraphQL data in Svelte that:
 Keeps your data immutable (prevents accidental mutations)
