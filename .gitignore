@@ -43,4 +43,5 @@ yarn-error.log*
 Thumbs.db
 
 # Generated files
-packages/model/src/generated-types.ts
+# Uncommented to make generated types visible for development
+# packages/model/src/generated-types.ts
