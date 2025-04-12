@@ -1,2 +1,9 @@
+repomix --style xml --output repomix-output.xml
+
 /clear
 /run cat repomix-output.xml
+
+./structure.sh
+
+# dal tests
+npx jest packages/dal/src/__tests__/client.test.ts

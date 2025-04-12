@@ -1,5 +1,5 @@
 import { DataAccessClient } from '../client';
-import { type User, type UserRole } from 'model';
+import type { User, UserRole } from 'model';
 
 describe('DataAccessClient', () => {
   let client: DataAccessClient;
