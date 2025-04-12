@@ -14,7 +14,6 @@ browser APIs to avoid heavy frameworks. Key goals include:
 - Enabling cross-component communication through **domain events**
 - Ensuring **type safety** and **schema compatibility** between GraphQL backends and Svelte frontends
 
-
 ## Key Architectural Components
 
 ### 1. **State Management Strategy**
