@@ -8,7 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
-    "verify": "ts-node verify.ts"
+    "verify": "node --loader ts-node/esm verify.ts"
   },
   "dependencies": {
     "immer": "^10.0.3",

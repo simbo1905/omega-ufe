@@ -1,6 +1,12 @@
 // Simple verification script for the UserCard component
-import * as fs from 'fs';
-import * as path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+import fs from 'fs';
+import path from 'path';
+
+// Get the directory name properly in ESM
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // Define mock user data
 const mockUser = {
@@ -12,8 +18,8 @@ const mockUser = {
 };
 
 // Check if the component file exists
-const componentPath = path.resolve('./src/UserCard.svelte');
-const storeFilePath = path.resolve('./src/stores/userStore.ts');
+const componentPath = path.join(__dirname, 'src', 'UserCard.svelte');
+const storeFilePath = path.join(__dirname, 'src', 'stores', 'userStore.ts');
 
 // Verify files exist
 console.log('Verifying component files...');
