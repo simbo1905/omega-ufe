@@ -1,33 +1,38 @@
-import { UserRole } from 'model/src/generated-types';
+// Simple verification script for the UserCard component
 import * as fs from 'fs';
 import * as path from 'path';
 
-// Check if the component file exists
-const componentPath = path.join(__dirname, 'src', 'UserCard.svelte');
-const storeFilePath = path.join(__dirname, 'src', 'stores', 'userStore.ts');
-
-// Verify files exist
-if (!fs.existsSync(componentPath)) {
-  console.error('❌ UserCard.svelte component not found!');
-  process.exit(1);
-}
-
-if (!fs.existsSync(storeFilePath)) {
-  console.error('❌ userStore.ts not found!');
-  process.exit(1);
-}
-
-// Mock user data
+// Define mock user data
 const mockUser = {
   id: '123',
   name: 'Jane Smith',
   email: 'jane.smith@example.com',
-  role: UserRole.ADMIN,
+  role: 'ADMIN',
   __typename: 'User'
 };
 
-console.log('✅ Verification successful!');
-console.log('Component files exist and can be imported.');
+// Check if the component file exists
+const componentPath = path.resolve('./src/UserCard.svelte');
+const storeFilePath = path.resolve('./src/stores/userStore.ts');
+
+// Verify files exist
+console.log('Verifying component files...');
+
+if (fs.existsSync(componentPath)) {
+  console.log('✅ UserCard.svelte component found!');
+} else {
+  console.error('❌ UserCard.svelte component not found!');
+  process.exit(1);
+}
+
+if (fs.existsSync(storeFilePath)) {
+  console.log('✅ userStore.ts found!');
+} else {
+  console.error('❌ userStore.ts not found!');
+  process.exit(1);
+}
+
+console.log('\n✅ Verification successful!');
 console.log('Mock user data:');
 console.log(mockUser);
 console.log('\nTo use this component in a Svelte application:');
