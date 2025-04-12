@@ -12,17 +12,3 @@
     "graphql": "^16.8.1"
   }
 }
-{
-  "name": "model",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "codegen": "graphql-codegen --config codegen.yml"
-  },
-  "dependencies": {
-    "@graphql-codegen/cli": "^5.0.0",
-    "@graphql-codegen/typescript": "^4.0.1",
-    "@graphql-codegen/typescript-operations": "^4.0.1",
-    "graphql": "^16.8.1"
-  }
-}

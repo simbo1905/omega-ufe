@@ -15,20 +15,3 @@ enum UserRole {
   USER
   GUEST
 }
-type Query {
-  user(id: ID!): User
-  users: [User!]!
-}
-
-type User {
-  id: ID!
-  name: String!
-  email: String!
-  role: UserRole!
-}
-
-enum UserRole {
-  ADMIN
-  USER
-  GUEST
-}
