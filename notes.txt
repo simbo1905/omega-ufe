@@ -6,4 +6,4 @@ repomix --style xml --output repomix-output.xml
 ./structure.sh
 
 # dal tests
-npx jest packages/dal/src/__tests__/client.test.ts
+npx ts-node packages/dal/src/__tests__/client.test.ts
