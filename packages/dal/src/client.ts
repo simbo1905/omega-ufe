@@ -1,4 +1,4 @@
-import { type User, UserRole } from 'model';
+import { type User, UserRole } from './__tests__/model-mock';
 
 export class DataAccessClient {
   async fetchUser(id: string): Promise<User> {
