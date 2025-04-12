@@ -1,0 +1,9 @@
+schema: "./schema.graphql"
+generates:
+  ./src/generated-types.ts:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+    config:
+      immutableTypes: true
+      enumsAsTypes: true
