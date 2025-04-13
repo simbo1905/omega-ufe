@@ -10,3 +10,8 @@ npm run codegen
 
 # dal tests
 npx jest packages/dal/src/__tests__/client.test.ts
+
+# validate a svelte module
+
+npm run verify --workspace=mfe-home
+

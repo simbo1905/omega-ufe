@@ -29,9 +29,9 @@ cd /Users/Shared/omega-µfe && \
 
 ## **IMPORTANT: Module System Notes**
 
-- The main packages use **ES Modules** with bare imports (e.g., `import { X } from 'model'`)
-- Test packages currently use **CommonJS** with relative imports for testing purposes only
-- **NEVER change the module system or import style of the main packages**
+- The main packages use **ES Modules** with bare imports (e.g., `import { X } from 'model'` or perhaps '@module' to use import-map.json)
+- Legacy test packages using Jest packages currently use **CommonJS** with relative imports for testing purposes only
+- **NEVER change the module system or import style of the main packagesn without an explict permission to do as a refactor never do it to fix other issues**
 - This project is specifically structured to use ES modules with import maps for browser environments
 
 ## **IMPORTANT: Generated Types Guidelines**

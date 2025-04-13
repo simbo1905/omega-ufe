@@ -5,15 +5,15 @@
 ### MODULE STRUCTURE AND IMPORTS
 1. This is a TypeScript monorepo with proper module encapsulation
 2. **NEVER use relative paths** to import between packages (e.g., `../../model/src`)
-3. **ALWAYS use bare module imports** (e.g., `import { X } from 'model'`) 
+3. **ALWAYS use bare module imports** (e.g., `import { X } from 'model'` or is it '@model' ??) 
 4. **ALWAYS run commands from the project root directory**, NEVER cd into package directories
 
 ### MODULE SYSTEM DETAILS
 1. **Main packages use ES Modules** with bare imports (`import { X } from 'model'`)
-2. **Test packages use CommonJS** with relative imports for testing purposes only
-3. **NEVER change the module system of the main packages** - they must use ES modules
-4. This project specifically uses ES modules with import maps for microfrontends in browser environments
-5. **NEVER attempt to "fix" module resolution issues by changing package.json type or import style**
+2. **Test packages using legacy Jest must use CommonJS** with relative imports for testing purposes only
+3. This project specifically uses ES modules with import maps for microfrontends in browser environments
+4. So we must migrate from Jest to Vite for correct module testing.
+5. **NEVER attempt to "fix" module resolution issues automatically without stopping to discuss it. 
 
 ### GENERATED TYPES HANDLING
 1. **ALWAYS read the generated GraphQL types** before working with them
