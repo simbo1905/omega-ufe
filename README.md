@@ -2,6 +2,20 @@
 
 This repo is following Readme-Driven Development with LLM Codegen. Until you see tagged releases, what is below is aspirational. See the article at [My LLM Code Generation Workflow (for now)](https://dev.to/simbo1905/my-llm-code-generation-workflow-for-now-1ahj) that explains this readme in git is for `aider` to understand what we are building. 
 
+## Commands
+
+Run the graphql codegen:
+
+```shell
+npm run codegen
+```
+
+Run the data access layer tests:
+
+```shell
+npx ts-node packages/dal/src/__tests__/client-runner.ts 
+```
+
 ## Overview
 
 This monorepo implements a decoupled microfrontend architecture called Omega-µfe.
