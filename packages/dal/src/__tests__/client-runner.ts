@@ -1,6 +1,6 @@
 import { DataAccessClient } from '../client';
 // import { UserRole } from './model-mock';
-import { UserRole } from 'model';
+import { UserRole } from '../../../model/src';
 
 // Simple test runner
 async function runTests() {
