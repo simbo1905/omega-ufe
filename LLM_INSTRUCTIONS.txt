@@ -1,0 +1,49 @@
+# LLM INSTRUCTIONS FOR OMEGA-µFE MONOREPO
+
+## CRITICAL GUIDELINES FOR LLM AGENTS
+
+### MODULE STRUCTURE AND IMPORTS
+1. This is a TypeScript monorepo with proper module encapsulation
+2. **NEVER use relative paths** to import between packages (e.g., `../../model/src`)
+3. **ALWAYS use bare module imports** (e.g., `import { X } from 'model'`) 
+4. **ALWAYS run commands from the project root directory**, NEVER cd into package directories
+
+### MODULE SYSTEM DETAILS
+1. **Main packages use ES Modules** with bare imports (`import { X } from 'model'`)
+2. **Test packages use CommonJS** with relative imports for testing purposes only
+3. **NEVER change the module system of the main packages** - they must use ES modules
+4. This project specifically uses ES modules with import maps for microfrontends in browser environments
+5. **NEVER attempt to "fix" module resolution issues by changing package.json type or import style**
+
+### GENERATED TYPES HANDLING
+1. **ALWAYS read the generated GraphQL types** before working with them
+2. **GraphQL enums are NOT converted to TypeScript enums** - they are generated as string union types
+3. Example: `enum UserRole { ADMIN USER GUEST }` becomes `type UserRole = 'ADMIN' | 'USER' | 'GUEST'` in TypeScript
+4. When working with model types, always check the structure in `packages/model/src/generated-types.ts`
+5. **BEFORE attempting any fixes for TypeScript errors related to model types, explicitly read the actual generated types file**
+
+### TESTING REQUIREMENTS
+1. Tests should be in their own separate packages (e.g., dal-test for testing the dal package)
+2. Always run tests from the project root using the full path to the test file
+3. Example: `npx jest packages/dal-test/src/client.test.ts`
+4. Test packages currently use CommonJS with relative imports (different from main modules)
+
+### CREATING NEW MODULES
+1. When creating new modules, follow the established pattern of separate packages
+2. Each package should have its own package.json, tsconfig.json
+3. Ensure proper dependencies are declared in package.json
+4. When creating tests, create a separate test package rather than a tests directory within the package
+
+### COMMAND EXECUTION
+1. Run build commands from the project root
+2. GraphQL codegen: `npm run codegen`
+3. Run tests from the project root: `npx jest packages/[test-package]/src/[file].test.ts`
+
+### PROJECT ARCHITECTURE PRINCIPLES
+1. Each package has a single responsibility
+2. The model package contains GraphQL schema and generated types
+3. The dal package provides data access and depends on model
+4. All front-end packages should use bare module imports
+5. Proper encapsulation and clean module boundaries are critical
+
+REMEMBER: Always validate your changes by running tests from the project root!
