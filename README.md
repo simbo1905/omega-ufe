@@ -14,7 +14,8 @@ Run the data access layer tests:
 
 ```shell
 # IMPORTANT: Always run tests from the project root, NEVER cd into a package directory
-npx jest packages/dal-test/src/client.test.ts
+cd /Users/Shared/omega-µfe && \
+  npx jest packages/dal-test/src/client.test.ts
 ```
 
 ## **IMPORTANT: Module Import Guidelines**
