@@ -5,5 +5,13 @@ repomix --style xml --output repomix-output.xml
 
 ./structure.sh
 
+# generate graphql types
+npm run codegen
+
 # dal tests
-npx ts-node packages/dal/src/__tests__/client.test.ts
+npx jest packages/dal/src/__tests__/client.test.ts
+
+# validate a svelte module
+
+npm run verify --workspace=mfe-home
+

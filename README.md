@@ -2,6 +2,51 @@
 
 This repo is following Readme-Driven Development with LLM Codegen. Until you see tagged releases, what is below is aspirational. See the article at [My LLM Code Generation Workflow (for now)](https://dev.to/simbo1905/my-llm-code-generation-workflow-for-now-1ahj) that explains this readme in git is for `aider` to understand what we are building. 
 
+## Commands
+
+Run the graphql codegen:
+
+```shell
+npm run codegen
+```
+
+Run the data access layer tests:
+
+```shell
+# IMPORTANT: Always run tests from the project root, NEVER cd into a package directory
+cd /Users/Shared/omega-µfe && \
+  npx jest packages/dal-test/src/client.test.ts
+```
+
+## **IMPORTANT: Module Import Guidelines**
+
+- **NEVER use relative paths** to import between packages (e.g., `../../model/src`)
+- **ALWAYS use bare module imports** (e.g., `import { X } from 'model'`) 
+- **ALWAYS run tests and build commands from the project root**, NEVER cd into a package directory
+- This project is set up for proper module resolution through workspace references in package.json and tsconfig.json
+- In a browser environment, these imports will be resolved by import-map.json
+- In the development/build environment, they're resolved through the npm workspace configuration
+
+## **IMPORTANT: Module System Notes**
+
+- The main packages use **ES Modules** with bare imports (e.g., `import { X } from 'model'` or perhaps '@module' to use import-map.json)
+- Legacy test packages using Jest packages currently use **CommonJS** with relative imports for testing purposes only
+- **NEVER change the module system or import style of the main packagesn without an explict permission to do as a refactor never do it to fix other issues**
+- This project is specifically structured to use ES modules with import maps for browser environments
+
+## **IMPORTANT: Generated Types Guidelines**
+
+- **ALWAYS read the generated GraphQL types carefully before using them**
+- **GraphQL enums are NOT converted to TypeScript enums** - they are generated as string union types
+- GraphQL enums like `enum UserRole { ADMIN USER GUEST }` become `type UserRole = 'ADMIN' | 'USER' | 'GUEST'` in TypeScript
+- When working with model types, always reference the actual generated type structure in `packages/model/src/generated-types.ts`
+- If there are any TypeScript errors related to model types, explicitly check the generated types before attempting fixes
+
+## **IMPORTANT: LLM Agent Instructions**
+
+- All LLM agents working on this codebase **MUST** read the `LLM_INSTRUCTIONS.txt` file at the project root
+- This file contains consolidated instructions for working with this monorepo architecture
+
 ## Overview
 
 This monorepo implements a decoupled microfrontend architecture called Omega-µfe.

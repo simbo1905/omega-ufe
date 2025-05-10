@@ -1,17 +1,12 @@
 {
-  "name": "dal",
+  "name": "dal-test",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
   "scripts": {
-    "test": "node --experimental-vm-modules ../../node_modules/.bin/jest",
-    "build": "tsc"
-  },
-  "jest": {
-    "preset": "ts-jest/presets/default-esm",
-    "extensionsToTreatAsEsm": [".ts"]
+    "test": "jest"
   },
   "dependencies": {
+    "dal": "0.1.0",
     "model": "0.1.0"
   },
   "devDependencies": {
@@ -21,7 +16,7 @@
     "@types/jest": "^29.5.0",
     "babel-jest": "^29.5.0",
     "jest": "^29.5.0",
-    "ts-jest": "^29.1.0",
     "typescript": "5.7.3"
-  }
+  },
+  "type": "commonjs"
 }

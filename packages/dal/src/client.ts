@@ -1,4 +1,4 @@
-import { type User, UserRole } from './__tests__/model-mock';
+import { type User, type UserRole } from 'model';
 
 export class DataAccessClient {
   async fetchUser(id: string): Promise<User> {
@@ -7,16 +7,16 @@ export class DataAccessClient {
       id,
       name: 'John Doe',
       email: 'john.doe@example.com',
-      role: UserRole.USER
+      role: 'USER' as UserRole
     };
   }
 
   async fetchAllUsers(): Promise<User[]> {
     // Mock implementation for testing
     return [
-      { id: '1', name: 'John Doe', email: 'john.doe@example.com', role: UserRole.USER },
-      { id: '2', name: 'Jane Doe', email: 'jane.doe@example.com', role: UserRole.ADMIN },
-      { id: '3', name: 'Bob Doe', email: 'bob.doe@example.com', role: UserRole.GUEST }
+      { id: '1', name: 'John Doe', email: 'john.doe@example.com', role: 'USER' as UserRole },
+      { id: '2', name: 'Jane Doe', email: 'jane.doe@example.com', role: 'ADMIN' as UserRole },
+      { id: '3', name: 'Bob Doe', email: 'bob.doe@example.com', role: 'GUEST' as UserRole }
     ];
   }
 }
